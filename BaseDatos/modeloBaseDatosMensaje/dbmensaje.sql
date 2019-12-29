@@ -4,10 +4,15 @@
 -- Project :      dbmensaje.DM1
 -- Author :       Jonas
 --
--- Date Created : Thursday, December 12, 2019 10:06:55
+-- Date Created : Sunday, December 22, 2019 08:31:31
 -- Target DBMS : PostgreSQL 9.x
 --
 
+CREATE SEQUENCE sec_autoria
+  start with 1
+  increment by 1
+  maxvalue 999999999
+  minvalue 1;
 -- 
 -- TABLE: autoria 
 --
@@ -19,9 +24,13 @@ CREATE TABLE autoria(
     CONSTRAINT "PK7" PRIMARY KEY (id)
 )
 ;
+ALTER TABLE autoria ALTER COLUMN id SET DEFAULT nextval('sec_autoria');
 
-
-
+CREATE SEQUENCE sec_dominio
+  start with 1
+  increment by 1
+  maxvalue 999999999
+  minvalue 1;
 -- 
 -- TABLE: dominio 
 --
@@ -40,9 +49,13 @@ CREATE TABLE dominio(
     CONSTRAINT "PK5" PRIMARY KEY (id)
 )
 ;
+ALTER TABLE dominio ALTER COLUMN id SET DEFAULT nextval('sec_dominio');
 
-
-
+CREATE SEQUENCE sec_fuente
+  start with 1
+  increment by 1
+  maxvalue 999999999
+  minvalue 1;
 -- 
 -- TABLE: fuente 
 --
@@ -54,9 +67,13 @@ CREATE TABLE fuente(
     CONSTRAINT "PK6" PRIMARY KEY (id)
 )
 ;
+ALTER TABLE fuente ALTER COLUMN id SET DEFAULT nextval('sec_fuente');
 
-
-
+CREATE SEQUENCE sec_mensaje
+  start with 1
+  increment by 1
+  maxvalue 999999999
+  minvalue 1;
 -- 
 -- TABLE: mensaje 
 --
@@ -69,8 +86,7 @@ CREATE TABLE mensaje(
     CONSTRAINT "PK4" PRIMARY KEY (id)
 )
 ;
-
-
+ALTER TABLE mensaje ALTER COLUMN id SET DEFAULT nextval('sec_mensaje');
 
 -- 
 -- TABLE: fuente 
